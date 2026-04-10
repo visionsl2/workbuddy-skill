@@ -1,0 +1,14 @@
+# macOS
+.DS_Store
+
+# Python
+__pycache__/
+*.pyc
+*.egg-info/
+
+# IDE
+.vscode/
+.idea/
+
+# Sensitive config (keep template, remove actual keys in repo)
+# scripts/dify_mcp_config.json

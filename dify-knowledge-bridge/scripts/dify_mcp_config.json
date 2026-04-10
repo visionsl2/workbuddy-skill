@@ -1,0 +1,7 @@
+{
+    "dify_endpoint": "http://160.0.6.9/v1",
+    "dify_api_key": "dataset-GeVY5VrH2Uu0cgr931oLHaze",
+    "knowledge_id": "9c3e5075-386d-49cf-a500-b92705eccdf7",
+    "top_k": 3,
+    "score_threshold": 0.5
+}
