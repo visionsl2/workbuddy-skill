@@ -1,0 +1,51 @@
+# 服务与支持配置
+# Service and Support Configuration
+
+section:
+  id: "service"
+  title: "7. 服务与支持"
+  description: "质保服务、运维服务、培训计划、交付文档"
+
+# 数据字段映射
+data_mapping:
+  warranty:
+    type: "object"
+    source: "service_support.warranty"
+    description: "质保服务"
+    fields:
+      - name: "period"
+        description: "质保期限"
+      - name: "scope"
+        description: "质保范围"
+      - name: "response_time"
+        description: "响应时效"
+        
+  maintenance:
+    type: "object"
+    source: "service_support.maintenance"
+    description: "运维服务"
+    fields:
+      - name: "after_warranty"
+        description: "质保期后服务"
+      - name: "内容包括"
+        description: "服务内容列表"
+        
+  training:
+    type: "object"
+    source: "service_support.training"
+    description: "培训计划"
+    fields:
+      - name: "training_plan"
+        description: "培训安排"
+      - name: "training_materials"
+        description: "培训资料"
+      - name: "training_hours"
+        description: "培训学时"
+        
+  documentation:
+    type: "object"
+    source: "service_support.documentation"
+    description: "交付文档"
+    fields:
+      - name: "deliverables"
+        description: "交付物列表"

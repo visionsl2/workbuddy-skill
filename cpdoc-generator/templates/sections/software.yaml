@@ -1,0 +1,38 @@
+# 软件平台介绍配置
+# Software Platform Configuration
+
+section:
+  id: "software"
+  title: "5. 软件平台介绍"
+  description: "平台概述和核心功能模块"
+
+# 数据字段映射
+data_mapping:
+  platform_overview:
+    type: "text"
+    source: "software_platform.platform_overview"
+    description: "平台概述"
+    default: "软件平台采用微服务架构..."
+    
+  modules:
+    type: "list_object"
+    source: "software_platform.modules"
+    description: "功能模块列表"
+    default: []
+    fields:
+      - name: "module_name"
+        description: "模块名称"
+      - name: "description"
+        description: "模块描述"
+      - name: "features"
+        description: "功能特性列表"
+      - name: "interface"
+        description: "接口方式"
+
+# 表格配置（可选功能列表汇总表）
+summary_table:
+  headers:
+    - "模块名称"
+    - "核心功能"
+    - "接口方式"
+  enabled: false  # 如需汇总表可启用

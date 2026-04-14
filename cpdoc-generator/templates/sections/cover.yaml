@@ -1,0 +1,62 @@
+# 封面配置
+# Cover Page Configuration
+
+section:
+  id: "cover"
+  title: "封面"
+  description: "文档封面，包含项目名称、客户信息、日期等"
+
+# 数据字段映射
+data_mapping:
+  project_name:
+    type: "text"
+    required: true
+    source: "meta.project_name"
+    description: "项目名称"
+    
+  client_name:
+    type: "text"
+    required: true
+    source: "meta.client_name"
+    description: "客户单位名称"
+    
+  date:
+    type: "text"
+    source: "meta.date"
+    default: "2026-01-01"
+    description: "编制日期"
+    
+  document_version:
+    type: "text"
+    source: "meta.document_version"
+    default: "V1.0"
+    description: "文档版本"
+    
+  company_name:
+    type: "text"
+    source: "meta.company_name"
+    default: "物联网解决方案提供商"
+    description: "编制单位"
+    
+  contact_person:
+    type: "text"
+    source: "meta.contact_person"
+    description: "联系人"
+    
+  contact_phone:
+    type: "text"
+    source: "meta.contact_phone"
+    description: "联系电话"
+    
+  contact_email:
+    type: "text"
+    source: "meta.contact_email"
+    description: "联系邮箱"
+
+# 样式配置
+styles:
+  title_font_size: 32
+  subtitle_font_size: 24
+  info_font_size: 14
+  title_color: [0, 51, 102]
+  subtitle_color: [0, 102, 153]

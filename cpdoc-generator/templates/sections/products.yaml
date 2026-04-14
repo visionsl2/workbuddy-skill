@@ -1,0 +1,50 @@
+# 产品选型清单配置
+# Product List Configuration
+
+section:
+  id: "products"
+  title: "4. 产品选型清单"
+  description: "按类别分类的产品设备清单表格"
+
+# 数据字段映射
+data_mapping:
+  introduction:
+    type: "text"
+    source: "product_list.introduction"
+    description: "产品清单前言"
+    default: "以下为推荐的核心产品选型清单："
+    
+  categories:
+    type: "list_object"
+    source: "product_list.categories"
+    description: "产品分类列表"
+    default: []
+    fields:
+      - name: "category_name"
+        description: "分类名称"
+      - name: "products"
+        description: "产品列表"
+        sub_fields:
+          - name: "name"
+            description: "产品名称"
+          - name: "model"
+            description: "型号"
+          - name: "manufacturer"
+            description: "厂商"
+          - name: "quantity"
+            description: "数量"
+          - name: "unit"
+            description: "单位"
+          - name: "key_params"
+            description: "关键参数"
+
+# 表格配置
+table_config:
+  headers:
+    - "产品名称"
+    - "型号"
+    - "厂商"
+    - "数量"
+    - "单位"
+    - "关键参数"
+  col_widths: [3, 1.5, 1.5, 0.8, 0.8, 4]

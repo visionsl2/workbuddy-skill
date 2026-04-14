@@ -1,0 +1,80 @@
+# 标准技术方案模板主配置
+# Standard IoT Solution Template
+
+meta:
+  name: "标准技术方案模板"
+  version: "1.0"
+  description: "物联网解决方案标准技术方案模板，包含完整章节结构"
+  author: "Auto Generated"
+
+# 章节定义
+sections:
+  - id: "cover"
+    title: "封面"
+    enabled: true
+    page_break_before: false
+    config_file: "sections/cover.yaml"
+    content_template: "content/cover.md"
+
+  - id: "toc"
+    title: "目录"
+    enabled: true
+    page_break_before: true
+    config_file: "sections/toc.yaml"
+    content_template: "content/toc.md"
+
+  - id: "overview"
+    title: "1. 项目概述"
+    enabled: true
+    page_break_before: true
+    config_file: "sections/overview.yaml"
+    content_template: "content/overview.md"
+
+  - id: "requirements"
+    title: "2. 需求分析"
+    enabled: true
+    page_break_before: true
+    config_file: "sections/requirements.yaml"
+    content_template: "content/requirements.md"
+
+  - id: "solution"
+    title: "3. 解决方案设计"
+    enabled: true
+    page_break_before: true
+    config_file: "sections/solution.yaml"
+    content_template: "content/solution.md"
+
+  - id: "products"
+    title: "4. 产品选型清单"
+    enabled: true
+    page_break_before: true
+    config_file: "sections/products.yaml"
+    content_template: "content/products.md"
+
+  - id: "software"
+    title: "5. 软件平台介绍"
+    enabled: true
+    page_break_before: true
+    config_file: "sections/software.yaml"
+    content_template: "content/software.md"
+
+  - id: "implementation"
+    title: "6. 实施计划"
+    enabled: true
+    page_break_before: true
+    config_file: "sections/implementation.yaml"
+    content_template: "content/implementation.md"
+
+  - id: "service"
+    title: "7. 服务与支持"
+    enabled: true
+    page_break_before: true
+    config_file: "sections/service.yaml"
+    content_template: "content/service.md"
+
+  - id: "appendix"
+    title: "8. 附录"
+    enabled: true
+    page_break_before: true
+    config_file: "sections/appendix.yaml"
+    content_template: "content/appendix.md"

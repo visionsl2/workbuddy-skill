@@ -1,0 +1,36 @@
+# 附录配置
+# Appendix Configuration
+
+section:
+  id: "appendix"
+  title: "8. 附录"
+  description: "技术规格、参考标准、资质证书"
+
+# 数据字段映射
+data_mapping:
+  technical_specs:
+    type: "list"
+    source: "appendix.technical_specs"
+    description: "系统技术规格"
+    default:
+      - "系统可用性 ≥ 99.9%"
+      - "数据采集延迟 ≤ 1秒"
+      
+  reference_standards:
+    type: "list"
+    source: "appendix.reference_standards"
+    description: "参考标准规范"
+    default: []
+    
+  certifications:
+    type: "list"
+    source: "appendix.certifications"
+    description: "企业资质证书"
+    default: []
+    
+  # 图片引用（可选）
+  images:
+    certifications:
+      type: "list_image"
+      source: "appendix.images.certifications"
+      description: "资质证书图片"

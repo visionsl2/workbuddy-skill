@@ -1,0 +1,58 @@
+# 解决方案设计配置
+# Solution Design Configuration
+
+section:
+  id: "solution"
+  title: "3. 解决方案设计"
+  description: "架构设计、三层架构、网络拓扑、安全设计"
+
+# 数据字段映射
+data_mapping:
+  architecture_overview:
+    type: "text"
+    source: "solution_design.architecture_overview"
+    description: "架构概述"
+    default: "采用端-边-云三层架构设计"
+    
+  architecture_layers:
+    type: "list_object"
+    source: "solution_design.architecture_layers"
+    description: "三层架构"
+    default: []
+    fields:
+      - name: "layer"
+        description: "层级名称"
+      - name: "description"
+        description: "层级描述"
+      - name: "components"
+        description: "组件列表"
+        
+  network_topology:
+    type: "text"
+    source: "solution_design.network_topology"
+    description: "网络拓扑说明"
+    default: "待补充网络架构说明"
+    
+  data_flow:
+    type: "text"
+    source: "solution_design.data_flow"
+    description: "数据流向"
+    default: "待补充数据流向说明"
+    
+  security_design:
+    type: "text"
+    source: "solution_design.security_design"
+    description: "安全设计"
+    default: "待补充安全设计说明"
+    
+  # 图片引用
+  images:
+    architecture_diagram:
+      type: "image"
+      source: "solution_design.diagrams.architecture"
+      description: "系统架构图"
+      
+    network_topology_diagram:
+      type: "image"
+      source: "solution_design.diagrams.network"
+      description: "网络拓扑图"

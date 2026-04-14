@@ -1,0 +1,34 @@
+# 需求分析配置
+# Requirements Analysis Configuration
+
+section:
+  id: "requirements"
+  title: "2. 需求分析"
+  description: "项目背景、业务痛点、建设目标"
+
+# 数据字段映射
+data_mapping:
+  background:
+    type: "text"
+    source: "requirements_analysis.background"
+    description: "项目背景"
+    default: "待补充项目背景"
+    
+  pain_points:
+    type: "list_object"
+    source: "requirements_analysis.pain_points"
+    description: "业务痛点列表"
+    default: []
+    fields:
+      - name: "title"
+        description: "痛点标题"
+      - name: "description"
+        description: "痛点描述"
+        
+  business_goals:
+    type: "list"
+    source: "requirements_analysis.business_goals"
+    description: "建设目标列表"
+    default:
+      - "实现数字化转型"
+      - "提升运营效率"

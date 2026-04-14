@@ -1,0 +1,38 @@
+# 项目概述配置
+# Executive Summary Configuration
+
+section:
+  id: "overview"
+  title: "1. 项目概述"
+  description: "项目概述、核心价值、投资概要"
+
+# 数据字段映射
+data_mapping:
+  overview:
+    type: "text"
+    source: "executive_summary.overview"
+    description: "方案概述"
+    default: "待补充方案概述内容"
+    
+  key_benefits:
+    type: "list"
+    source: "executive_summary.key_benefits"
+    description: "核心价值列表"
+    default:
+      - "提升运营效率"
+      - "降低运营成本"
+      - "增强数据可视化"
+    # 可选：从Dify知识库查询
+    dify_query: "核心价值 解决方案 效益"
+    
+  investment_summary:
+    type: "text"
+    source: "executive_summary.investment_summary"
+    description: "投资概要"
+    default: "待补充投资概要"
+
+# 样式配置
+styles:
+  h2_title: "1.1 方案概述"
+  h2b_title: "1.2 核心价值"
+  h2c_title: "1.3 投资概要"
