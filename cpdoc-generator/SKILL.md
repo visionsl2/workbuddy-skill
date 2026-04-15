@@ -1,5 +1,6 @@
 ---
 name: cpdoc-generator
+version: "2.1"
 description: |
   物联网(IoT)解决方案文档生成器。用于从会议纪要或需求文档自动生成专业的Word解决方案文档。
   当用户需要生成物联网解决方案、设备数采方案、智能制造方案等Word文档时触发此skill。
