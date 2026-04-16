@@ -46,7 +46,7 @@ class DifyBridge:
         """
         self._init_session()
 
-        url = f"{self.api_base}/datasets/{self.dataset_id}/retrieval"
+        url = f"{self.api_base}/datasets/{self.dataset_id}/retrieve"
 
         payload = {
             "query": query_text,

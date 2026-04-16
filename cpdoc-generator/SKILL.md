@@ -1,6 +1,6 @@
 ---
 name: cpdoc-generator
-version: "2.1"
+version: "2.2"
 description: |
   物联网(IoT)解决方案文档生成器。用于从会议纪要或需求文档自动生成专业的Word解决方案文档。
   当用户需要生成物联网解决方案、设备数采方案、智能制造方案等Word文档时触发此skill。
@@ -20,9 +20,10 @@ description: |
 ## 核心能力
 
 1. **Word文档解析** - 读取参考方案(.docx)，提取结构、内容、图片
-2. **会议纪要解析** - 从.md/.docx纪要中提取客户、设备、需求等信息
-3. **YAML数据生成** - 自动生成符合模板的数据文件
-4. **文档生成** - 基于Jinja2模板和数据生成最终Word文档
+2. **Dify知识库检索** - 自动从"中设方案库"检索参考内容
+3. **会议纪要解析** - 从.md/.docx纪要中提取客户、设备、需求等信息
+4. **YAML数据生成** - 自动生成符合模板的数据文件
+5. **文档生成** - 基于Jinja2模板和数据生成最终Word文档
 
 ## 使用流程
 
@@ -30,10 +31,25 @@ description: |
 
 用户提供以下材料（至少提供一项）：
 - **参考方案**（.docx格式）- 可从公司历史项目中获取
+- **Dify知识库** - 自动从"中设方案库"检索相关方案内容
 - **会议纪要**（.md/.docx格式）- 记录客户需求
 - **客户基本信息** - 公司名、行业、设备类型等
 
-### Step 2: 提取参考方案（可选）
+### Step 2: Dify知识库检索（新增能力）
+
+当用户提供的信息不足时，可自动从Dify知识库检索补充：
+
+```bash
+# 在项目YAML中配置检索查询
+python src/generator.py --project <yaml> --template standard --output output/ --use-dify
+```
+
+**Dify知识库配置**（已预置）：
+- 地址: http://160.0.6.9/v1
+- 知识库: 中设方案库
+- Dataset ID: 9c3e5075-386d-49cf-a500-b92705eccdf7
+
+### Step 3: 提取参考方案（可选）
 
 若提供了参考方案，执行以下命令提取内容和图片：
 
@@ -41,11 +57,16 @@ description: |
 python src/word2yaml.py --input <参考方案路径> --output <输出YAML路径>
 ```
 
-### Step 3: 生成或更新YAML数据
+### Step 4: 生成或更新YAML数据
 
 基于会议纪要和参考方案，生成客户专属的YAML数据文件。
 
-关键字段说明：
+**数据源优先级**：
+1. 本地YAML配置（最高优先级）
+2. Dify知识库检索（自动补充缺失内容）
+3. 命令行覆盖参数（最高）
+
+**关键字段说明**：
 
 | 字段 | 说明 | 示例 |
 |------|------|------|
@@ -58,10 +79,23 @@ python src/word2yaml.py --input <参考方案路径> --output <输出YAML路径>
 | `pain_points` | 痛点列表 | [{title, description}] |
 | `platform_modules` | 平台模块（含图片） | [{title, description, image, image1, image2}] |
 
-### Step 4: 生成文档
+**Dify检索配置示例**：
+
+```yaml
+data_sources:
+  dify_queries:
+    overview: "设备联网监控系统 项目需求 方案概述"
+    device_types: "工业设备 数据采集 设备类型"
+```
+
+### Step 5: 生成文档
 
 ```bash
+# 基础用法
 python src/generator.py --project <YAML路径> --template <模板名> --output <输出目录>
+
+# 启用 Dify 知识库自动补充
+python src/generator.py --project <YAML路径> --template standard --output output/ --use-dify
 ```
 
 ## 项目结构

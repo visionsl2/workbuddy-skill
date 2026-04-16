@@ -1,0 +1,23 @@
+# 解决方案文档生成器 配置
+
+# Dify 知识库配置
+dify:
+  api_base: "http://160.0.6.9/v1"
+  api_key: "dataset-GeVY5VrH2Uu0cgr931oLHaze"
+  dataset_id: "9c3e5075-386d-49cf-a500-b92705eccdf7"  # 中设方案库
+  default_top_k: 3
+  score_threshold: 0.3
+
+# 数据源优先级
+data_sources:
+  priority:
+    - local_yaml    # 优先使用本地 YAML 配置
+    - dify_knowledge  # 其次从 Dify 知识库检索
+    - command_override  # 命令行参数最高优先级
+
+# 模板配置
+templates:
+  default: standard
+  available:
+    - standard    # 标准方案模板
+    - simple      # 简化模板

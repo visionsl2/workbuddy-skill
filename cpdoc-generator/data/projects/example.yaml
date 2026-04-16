@@ -1,0 +1,29 @@
+# 示例项目配置
+# 此文件展示如何配置项目数据源
+
+meta:
+  project_name: "设备联网监控管理系统"
+  client_name: "XX制造有限公司"
+  document_version: "V1.0"
+  author: "中设智控"
+  date: "2026-04-16"
+
+# 项目需求 - 可选，如不填则从 Dify 知识库自动检索
+requirements:
+  overview: ""  # 空值时从 Dify 自动获取
+  devices: ""
+  network_mode: ""
+
+# 数据源配置 - 告诉生成器如何获取缺失数据
+data_sources:
+  # Dify 查询模板 - 当本地数据缺失时自动查询
+  dify_queries:
+    overview: "设备联网监控系统 项目需求 方案概述"
+    device_types: "工业设备 数据采集 设备类型"
+    network_topology: "工业网络 拓扑结构 架构设计"
+    protocol_support: "Modbus PLC 数据采集 通信协议"
+
+# 产品配置 - 选填
+products:
+  platform: "中设CPIOT"
+  features: []
